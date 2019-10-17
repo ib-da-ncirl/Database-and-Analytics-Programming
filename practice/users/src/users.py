@@ -45,7 +45,7 @@ floatAttrib = "dbl"
 process_limit = sys.maxsize  # set to sys.maxsize to process all records or a smaller value
 
 timeit_count = 0                        # set to desired number of executions, or 0 to disable timing
-display_output = (timeit_count == 0)    # display out if not timing execution
+display_output = (timeit_count == 0)    # display output if not timing execution
 
 csv_source_type = 'sio'        # set to 'file' to store and read csv data from a file, or 'sio' to use a StringIO
 csv_file_name = 'users.csv'     # name of csv file for csv_source_type = 'file'
@@ -208,32 +208,32 @@ def export_csv_file(filename, users, header=None):
 
 
 def main():
-    attrId = {"name": "Id", "type": intAttrib}
-    attrReputation = {"name": "Reputation", "type": intAttrib}
-    attrCreationDate = {"name": "CreationDate", "type": dateAttrib}
-    attrDisplayName = {"name": "DisplayName", "type": strAttrib}
-    attrLastAccessDate = {"name": "LastAccessDate", "type": dateAttrib}
-    attrWebsiteUrl = {"name": "WebsiteUrl", "type": strAttrib}
-    attrLocation = {"name": "Location", "type": strAttrib}
-    attrAboutMe = {"name": "AboutMe", "type": htmlAttrib}
-    attrViews = {"name": "Views", "type": intAttrib}
-    attrUpVotes = {"name": "UpVotes", "type": intAttrib}
-    attrDownVotes = {"name": "DownVotes", "type": intAttrib}
-    attribAge = {"name": "Age", "type": intAttrib}
-    attrAccountId = {"name": "AccountId", "type": intAttrib}
-    userAttributes = [
-        attrId, attrReputation, attrCreationDate, attrDisplayName, attrLastAccessDate, attrWebsiteUrl,
-        attrLocation, attrAboutMe, attrViews, attrUpVotes, attrDownVotes, attribAge, attrAccountId
+    attr_id = {"name": "Id", "type": intAttrib}
+    attr_reputation = {"name": "Reputation", "type": intAttrib}
+    attr_creation_date = {"name": "CreationDate", "type": dateAttrib}
+    attr_display_name = {"name": "DisplayName", "type": strAttrib}
+    attr_last_access_date = {"name": "LastAccessDate", "type": dateAttrib}
+    attr_website_url = {"name": "WebsiteUrl", "type": strAttrib}
+    attr_location = {"name": "Location", "type": strAttrib}
+    attr_about_me = {"name": "AboutMe", "type": htmlAttrib}
+    attr_views = {"name": "Views", "type": intAttrib}
+    attr_up_votes = {"name": "UpVotes", "type": intAttrib}
+    attr_down_votes = {"name": "DownVotes", "type": intAttrib}
+    attrib_age = {"name": "Age", "type": intAttrib}
+    attr_account_id = {"name": "AccountId", "type": intAttrib}
+    user_attributes = [
+        attr_id, attr_reputation, attr_creation_date, attr_display_name, attr_last_access_date, attr_website_url,
+        attr_location, attr_about_me, attr_views, attr_up_votes, attr_down_votes, attrib_age, attr_account_id
     ]
     header = []
-    for attrib in userAttributes:
+    for attrib in user_attributes:
         header.append(attrib["name"])
 
     global csv_source_type, csv_file_name, xml_source
     if csv_source_type == 'file':
         if not osp.exists(csv_file_name):
 
-            users_array = read_xml(xml_source, userAttributes)
+            users_array = read_xml(xml_source, user_attributes)
 
             # export to csv file, so don't have to do conversion again
             export_csv_file(csv_file_name, users_array)
@@ -243,7 +243,7 @@ def main():
         # https://docs.python.org/3/library/io.html#io.StringIO
         csv_buffer = StringIO()
 
-        users_array = read_xml(xml_source, userAttributes)
+        users_array = read_xml(xml_source, user_attributes)
 
         writer = csv.writer(csv_buffer)
         # writer.writerow(header)
@@ -257,8 +257,8 @@ def main():
     display('load csv')
     # https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_csv.html
     pd_users = pd.read_csv(csv_source, converters={
-        attrCreationDate["name"]: pd.to_datetime,
-        attrLastAccessDate["name"]: pd.to_datetime
+        attr_creation_date["name"]: pd.to_datetime,
+        attr_last_access_date["name"]: pd.to_datetime
     }, names=header)
 
     if isinstance(csv_source, StringIO):
@@ -279,9 +279,9 @@ def main():
     # The oldest user
     print_header("Oldest user")
     # https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.min.html#pandas.DataFrame.min
-    display(f"date for oldest user: {pd_users[attrCreationDate['name']].min()}")
+    display(f"date for oldest user: {pd_users[attr_creation_date['name']].min()}")
     # https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.idxmin.html#pandas.DataFrame.idxmin
-    index = pd_users[attrCreationDate['name']].idxmin()
+    index = pd_users[attr_creation_date['name']].idxmin()
     display(f'row index of oldest user: {index}')
     # https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.loc.html#pandas.DataFrame.loc
     display(pd_users.loc[index, :])
@@ -289,71 +289,71 @@ def main():
     # The newest user
     print_header("Newest user")
     # https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.max.html#pandas.DataFrame.max
-    display(f"date for newest user: {pd_users[attrCreationDate['name']].max()}")
+    display(f"date for newest user: {pd_users[attr_creation_date['name']].max()}")
     # https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.idxmax.html#pandas.DataFrame.idxmax
-    index = pd_users[attrCreationDate['name']].idxmax()
+    index = pd_users[attr_creation_date['name']].idxmax()
     display(f'row index of newest user: {index}')
     display(pd_users.loc[index, :])
 
     # Average user age
     print_header("Average user age")
-    avg = get_mean(pd_users[attribAge['name']])
+    avg = get_mean(pd_users[attrib_age['name']])
     display(f"average user age: {avg}")
 
     # User with highest downvote and highest views
-    find_highest("User with highest downvote", "downvote", pd_users, attrDownVotes['name'])
-    find_highest("User with highest views", "views", pd_users, attrViews['name'])
+    find_highest("User with highest downvote", "downvote", pd_users, attr_down_votes['name'])
+    find_highest("User with highest views", "views", pd_users, attr_views['name'])
 
     # User with highest upvote and lowest views
-    find_highest("User with highest upvote", "upvote", pd_users, attrUpVotes['name'])
-    find_lowest("User with lowest views", "views", pd_users, attrViews['name'])
+    find_highest("User with highest upvote", "upvote", pd_users, attr_up_votes['name'])
+    find_lowest("User with lowest views", "views", pd_users, attr_views['name'])
 
     # Users that do not access the website for more than 180 days
     check_time = dt.datetime.now()
     num_days = 180
     date_limit = check_time - dt.timedelta(days=num_days)
-    more_than_date_limit = pd_users.loc[pd_users[attrLastAccessDate['name']] < date_limit]
+    more_than_date_limit = pd_users.loc[pd_users[attr_last_access_date['name']] < date_limit]
     print_header(f"Users that do not access the website for more than {num_days} days: {len(more_than_date_limit)}")
     if not more_than_date_limit.empty:
         display(more_than_date_limit)
 
     check_time = dt.datetime(2014, 6, 1)
     date_limit = check_time - dt.timedelta(days=num_days)
-    more_than_date_limit = pd_users.loc[pd_users[attrLastAccessDate['name']] < date_limit]
+    more_than_date_limit = pd_users.loc[pd_users[attr_last_access_date['name']] < date_limit]
     print_header(
         f"Users that do not access the website for more than {num_days} days before {check_time} i.e. {date_limit}: {len(more_than_date_limit)}")
     if not more_than_date_limit.empty:
         display(more_than_date_limit)
 
     # How many people are below 18, from 18-25, 25-35,36-46, above 46
-    age_group = pd_users.loc[pd_users[attribAge['name']] < 18]
+    age_group = pd_users.loc[pd_users[attrib_age['name']] < 18]
     print_header(f"Users that are below 18: {len(age_group)}")
     if not age_group.empty:
         display(age_group)
 
-    age_group = pd_users.loc[(pd_users[attribAge['name']] >= 18) & (pd_users[attribAge['name']] <= 25)]
+    age_group = pd_users.loc[(pd_users[attrib_age['name']] >= 18) & (pd_users[attrib_age['name']] <= 25)]
     print_header(f"Users that are from 18-25: {len(age_group)}")
     if not age_group.empty:
         display(age_group)
 
-    age_group = pd_users.loc[(pd_users[attribAge['name']] >= 25) & (pd_users[attribAge['name']] <= 35)]
+    age_group = pd_users.loc[(pd_users[attrib_age['name']] >= 25) & (pd_users[attrib_age['name']] <= 35)]
     print_header(f"Users that are from 25-35: {len(age_group)}")
     if not age_group.empty:
         display(age_group)
 
-    age_group = pd_users.loc[(pd_users[attribAge['name']] >= 36) & (pd_users[attribAge['name']] <= 46)]
+    age_group = pd_users.loc[(pd_users[attrib_age['name']] >= 36) & (pd_users[attrib_age['name']] <= 46)]
     print_header(f"Users that are from 36-46: {len(age_group)}")
     if not age_group.empty:
         display(age_group)
 
-    age_group = pd_users.loc[pd_users[attribAge['name']] > 46]
+    age_group = pd_users.loc[pd_users[attrib_age['name']] > 46]
     print_header(f"Users that are above 46: {len(age_group)}")
     if age_group.size > 0:
         display(age_group)
 
     # Calculate the top 20 frequent locations
     top_count = 20
-    locations = pd_users[attrLocation['name']]  # series of locations
+    locations = pd_users[attr_location['name']]  # series of locations
     # https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.value_counts.html#pandas.Series.value_counts
     locations = locations.value_counts()  # series containing counts of unique locations
     # https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.nlargest.html#pandas.Series.nlargest
@@ -363,7 +363,7 @@ def main():
         display(locations)
 
     # How many people with the sameWebsiteUrl
-    web_url = pd_users[attrWebsiteUrl['name']]  # series of website urls
+    web_url = pd_users[attr_website_url['name']]  # series of website urls
     web_url = web_url.value_counts()  # series containing counts of unique website urls
     print_header(f"Counts of users with same website urls:")
     display(web_url)
@@ -371,7 +371,7 @@ def main():
     # Users with above the average number of words AboutMe section
     # Users with below the average number of words AboutMe section
     print_header(f"Counts of users with above/below average number of words AboutMe section:")
-    about_me = pd_users[attrAboutMe['name']]  # series of about me text
+    about_me = pd_users[attr_about_me['name']]  # series of about me text
     # https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.fillna.html#pandas.Series.fillna
     about_me = about_me.fillna('')          # replace empty with ''
 
