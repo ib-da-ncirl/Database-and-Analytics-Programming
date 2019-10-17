@@ -40,24 +40,28 @@ htmlAttrib = "html"
 intAttrib = "int"
 floatAttrib = "dbl"
 
-process_limit = 100  # set to sys.maxsize to process all records or a smaller value
+process_limit = sys.maxsize  # set to sys.maxsize to process all records or a smaller value
 
-timeit_count = 10                        # set to desired number of executions, or 0 to disable timing
-display_output = (timeit_count == 0)    # display out if not timing execution
+timeit_count = 0                        # set to desired number of executions, or 0 to disable timing
+display_output = (timeit_count == 0)    # display output if not timing execution
 
-string_max = 0
+max_array_display = 15      # max number of array entries to display
+
+xml_source = 'Users.xml'
 
 
-def read_attributes(entry, attributes):
+def read_attributes(entry, attributes, check_length=True):
     """
     Read the attributes for an user xml entry
     :param entry: xml entry string
     :param attributes: list of attributes to read
+    :param check_length: check lengths for html & string attributes
     :return: dictionary of attribute values
     """
     attr_dict = {}
     for attrib in attributes:
         name = attrib["name"]
+        attrib_len = -1
         attrib_str = entry.get(name)
         if attrib_str is None:
             if attrib["type"] == dateAttrib:
@@ -78,14 +82,15 @@ def read_attributes(entry, attributes):
             attr_dict[name] = float(attrib_str)
         elif attrib["type"] == htmlAttrib:
             attr_dict[name] = attrib_str
-            alen = len(attrib_str.encode('utf-8'))
-            if alen > attrib["size"]:
-                raise ValueError(f'size error {alen} > {attrib["size"]} for {name}')
+            attrib_len = len(attrib_str.encode('utf-8'))
         else:
             attr_dict[name] = attrib_str
-            alen = len(attrib_str)
-            if alen > attrib["size"]:
-                raise ValueError(f'size error {alen} > {attrib["size"]} for {name}')
+            attrib_len = len(attrib_str)
+
+        if check_length and (attrib_len >= 0):
+            if attrib_len > attrib["size"]:
+                raise ValueError(f'size error {attrib_len} > {attrib["size"]} for {name}')
+
     return attr_dict
 
 
@@ -115,15 +120,34 @@ def print_header(title):
     display(f"\n{title}\n----------------------------------")
 
 
-def print_array(array, indices):
+def display_array(array, limit=max_array_display):
+    """
+    Print an array
+    :param array: array to print
+    :param limit: max number of entries to print
+    """
+    if len(array) > limit:
+        sub_array = array[:limit]
+        display(sub_array)
+        display(f'{len(array) - limit} additional entries')
+    else:
+        display(array)
+
+
+def print_array(array, indices, limit=max_array_display):
     """
     Print an array
     :param array: array to print
     :param indices: indices in array to print
     """
     if len(indices) > 0:
+        count = 0
         for idx in indices:
-            display(array[idx])
+            if count == limit:
+                display(f'{len(indices) - limit} additional entries')
+                break
+            display_array(array[idx], limit)
+            count += 1
 
 
 def find_highest(title, name, array, column):
@@ -208,102 +232,213 @@ def nlargest(array, n, column):
     return nlargest_array(array[column], n)
 
 
-def main():
-    attrId = {"name": "Id", "type": intAttrib, "size": 0}
-    attrReputation = {"name": "Reputation", "type": intAttrib, "size": 0}
-    attrCreationDate = {"name": "CreationDate", "type": dateAttrib, "size": 0}
-    attrDisplayName = {"name": "DisplayName", "type": strAttrib, "size": 50}
-    attrLastAccessDate = {"name": "LastAccessDate", "type": dateAttrib, "size": 0}
-    attrWebsiteUrl = {"name": "WebsiteUrl", "type": strAttrib, "size": 256}
-    attrLocation = {"name": "Location", "type": strAttrib, "size": 50}
-    attrAboutMe = {"name": "AboutMe", "type": htmlAttrib, "size": 4000}
-    attrViews = {"name": "Views", "type": intAttrib, "size": 0}
-    attrUpVotes = {"name": "UpVotes", "type": intAttrib, "size": 0}
-    attrDownVotes = {"name": "DownVotes", "type": intAttrib, "size": 0}
-    attribAge = {"name": "Age", "type": intAttrib, "size": 0}
-    attrAccountId = {"name": "AccountId", "type": intAttrib, "size": 0}
-    userAttributes = [
-        attrId, attrReputation, attrCreationDate, attrDisplayName, attrLastAccessDate, attrWebsiteUrl,
-        attrLocation, attrAboutMe, attrViews, attrUpVotes, attrDownVotes, attribAge, attrAccountId
-    ]
+def scan_strings(xml_file, attributes, skip=0):
+    """
+    Scan attributes in an xml file for length of entries
+    :param xml_file: name of file to scan
+    :param attributes: list of attributes to check
+    :param skip: number of lines at start of file to skip
+    :return: array of lengths, or None if error occured
+    """
+    # declare array, 0 rows, 1 column
+    type_list = []
+    for attrib in attributes:
+        type_list.append((attrib["name"], np.int32))
+    string_lens = np.empty([0, 1], np.dtype(type_list))
 
-    tree = eT.parse('Users.xml')
-    root = tree.getroot()
+    try:
+        tree = eT.parse(xml_file)
+        root = tree.getroot()
+
+        # scan specified attributes
+        bs = ''
+        display('string scan user count: ', end='')
+        for userXml in root:
+            if skip > 0:
+                skip -= 1
+            else:
+                user = read_attributes(userXml, attributes, check_length=False)
+                lens = []
+                for attrib in attributes:
+                    if user[attrib["name"]] is None:
+                        size = 0
+                    else:
+                        size = len(user[attrib["name"]])
+                    lens.append(size)
+                # row_stack id an alias for vstack
+                # https://docs.scipy.org/doc/numpy/reference/generated/numpy.vstack.html?highlight=vstack#numpy.vstack
+                string_lens = np.row_stack((string_lens, np.array([tuple(lens)], np.dtype(type_list))))
+                count = string_lens.shape[0]
+
+                if display_output and (count % 100 == 0):
+                    # give some in progress feedback
+                    msg = f'{count}'
+                    if len(bs) > 0:
+                        sys.stdout.write(bs)
+                    bs = '\b' * (len(msg))
+                    sys.stdout.write(msg)
+                    sys.stdout.flush()
+                    time.sleep(0.2)
+
+                global process_limit
+                if count > process_limit:
+                    break
+
+    except FileNotFoundError as fne:
+        print(f'Error: {xml_file} not found')
+        string_lens = None
+    except Exception as ex:
+        print(f'Error: {ex}')
+        string_lens = None
+
+    display('\n')
+    return string_lens
+
+
+def attribute_dictionary(name, type, size=0):
+    return {"name": name, "type": type, "size": size}
+
+
+def main():
+    # max string length values from scan
+    # DisplayName size: 41
+    # WebsiteUrl size: 203
+    # Location size: 104
+    # AboutMe size: 3911
+    attr_id = attribute_dictionary("Id", intAttrib)
+    attr_reputation = attribute_dictionary("Reputation", intAttrib)
+    attr_creation_date = attribute_dictionary("CreationDate", dateAttrib)
+    attr_display_name = attribute_dictionary("DisplayName", strAttrib, 50)
+    attr_last_access_date = attribute_dictionary("LastAccessDate", dateAttrib)
+    attr_website_url = attribute_dictionary("WebsiteUrl", strAttrib, 210)
+    attr_location = attribute_dictionary("Location", strAttrib, 110)
+    attr_about_me = attribute_dictionary("AboutMe", htmlAttrib, 3920)
+    attr_views = attribute_dictionary("Views", intAttrib)
+    attr_up_votes = attribute_dictionary("UpVotes", intAttrib)
+    attr_down_votes = attribute_dictionary("DownVotes", intAttrib)
+    attrib_age = attribute_dictionary("Age", intAttrib)
+    attr_account_id = attribute_dictionary("AccountId", intAttrib)
+    # array of attributes of type text (for the moment)
+    str_attributes = [attr_display_name, attr_website_url, attr_location, attr_about_me]
+
+    # scan for max string lengths as need to know size to allocate for string in the numpy array
+    str_lens = scan_strings(xml_source, str_attributes, skip=1)
+    if str_lens is None:
+        exit(1)
+
+    idx = 0
+    for attrib in str_attributes:
+        attrib_to_set = None
+        if attrib["name"] == attr_display_name["name"]:
+            attrib_to_set = attr_display_name
+        elif attrib["name"] == attr_website_url["name"]:
+            attrib_to_set = attr_website_url
+        elif attrib["name"] == attr_location["name"]:
+            attrib_to_set = attr_location
+        elif attrib["name"] == attr_about_me["name"]:
+            attrib_to_set = attr_about_me
+        if attrib_to_set is not None:
+            max_size = str_lens[attrib["name"]].max()
+            attrib_to_set["size"] = max_size + 5   # add padding
+            display(f'{attrib_to_set["name"]} size: {attrib_to_set["size"]}')
+    display('\n')
+
+    # need to update the string lengths first as user_attributes gets its own copy of the attribute variables
+    user_attributes = [
+        attr_id, attr_reputation, attr_creation_date, attr_display_name, attr_last_access_date, attr_website_url,
+        attr_location, attr_about_me, attr_views, attr_up_votes, attr_down_votes, attrib_age, attr_account_id
+    ]
 
     # create structured array
     # need to know what sizes to allocate for strings
     # https://docs.scipy.org/doc/numpy/user/basics.rec.html
-    type1 = np.dtype([(attrId["name"], np.int64), (attrReputation["name"], np.int64),
-                      (attrCreationDate["name"], np.int64), (attrDisplayName["name"], np.str_, attrDisplayName["size"]),
-                      (attrLastAccessDate["name"], np.int64), (attrWebsiteUrl["name"], np.str_, attrWebsiteUrl["size"]),
-                      (attrLocation["name"], np.str_, attrLocation["size"]),
-                      (attrAboutMe["name"], np.str_, attrAboutMe["size"]),
-                      (attrViews["name"], np.int64), (attrUpVotes["name"], np.int64),
-                      (attrDownVotes["name"], np.int64), (attribAge["name"], np.int64),
-                      (attrAccountId["name"], np.int64)
+    # https://docs.scipy.org/doc/numpy/reference/arrays.dtypes.html#arrays-dtypes-constructing
+    type1 = np.dtype([(attr_id["name"], np.int64),
+                      (attr_reputation["name"], np.int64),
+                      (attr_creation_date["name"], np.int64),
+                      (attr_display_name["name"], np.str_, attr_display_name["size"]),
+                      (attr_last_access_date["name"], np.int64),
+                      (attr_website_url["name"], np.str_, attr_website_url["size"]),
+                      (attr_location["name"], np.str_, attr_location["size"]),
+                      (attr_about_me["name"], np.str_, attr_about_me["size"]),
+                      (attr_views["name"], np.int64), (attr_up_votes["name"], np.int64),
+                      (attr_down_votes["name"], np.int64), (attrib_age["name"], np.int64),
+                      (attr_account_id["name"], np.int64)
                       ])
     # declare empty array, zero rows but one column
     users = np.empty([0, 1], dtype=type1)
 
     # load into an array of dictionaries ignoring first row
-    bs = ''
-    display('user count: ', end='')
-    for userXml in root:
-        user = read_attributes(userXml, userAttributes)
-        if user[attrId["name"]] > 0:
-            row = np.array([(user[attrId["name"]],
-                             user[attrReputation["name"]],
-                             user[attrCreationDate["name"]].timestamp(),
-                             user[attrDisplayName["name"]],
-                             user[attrLastAccessDate["name"]].timestamp(),
-                             user[attrWebsiteUrl["name"]],
-                             user[attrLocation["name"]],
-                             user[attrAboutMe["name"]],
-                             user[attrViews["name"]],
-                             user[attrUpVotes["name"]],
-                             user[attrDownVotes["name"]],
-                             user[attribAge["name"]],
-                             user[attrAccountId["name"]]
-                             )
-                            ], dtype=type1)
-            users = np.row_stack((users, row))
-            count = users.shape[0]
+    try:
+        tree = eT.parse(xml_source)
+        root = tree.getroot()
 
-            if display_output and (count % 100 == 0):
-                # give some in progress feedback
-                msg = f'{count}'
-                if len(bs) > 0:
-                    sys.stdout.write(bs)
-                bs = '\b' * (len(msg))
-                sys.stdout.write(msg)
-                sys.stdout.flush()
-                time.sleep(0.2)
+        bs = ''
+        display('user count: ', end='')
+        for userXml in root:
+            user = read_attributes(userXml, user_attributes)
+            if user[attr_id["name"]] > 0:
+                row = np.array([(user[attr_id["name"]],
+                                 user[attr_reputation["name"]],
+                                 user[attr_creation_date["name"]].timestamp(),
+                                 user[attr_display_name["name"]],
+                                 user[attr_last_access_date["name"]].timestamp(),
+                                 user[attr_website_url["name"]],
+                                 user[attr_location["name"]],
+                                 user[attr_about_me["name"]],
+                                 user[attr_views["name"]],
+                                 user[attr_up_votes["name"]],
+                                 user[attr_down_votes["name"]],
+                                 user[attrib_age["name"]],
+                                 user[attr_account_id["name"]]
+                                 )
+                                ], dtype=type1)
+                # row_stack id an alias for vstack
+                # https://docs.scipy.org/doc/numpy/reference/generated/numpy.vstack.html?highlight=vstack#numpy.vstack
+                users = np.row_stack((users, row))
+                count = users.shape[0]
 
-            global process_limit
-            if count > process_limit:
-                break
-    display('\n')
+                if display_output and (count % 100 == 0):
+                    # give some in progress feedback
+                    msg = f'{count}'
+                    if len(bs) > 0:
+                        sys.stdout.write(bs)
+                    bs = '\b' * (len(msg))
+                    sys.stdout.write(msg)
+                    sys.stdout.flush()
+                    time.sleep(0.2)
+
+                global process_limit
+                if count > process_limit:
+                    break
+        display('\n')
+    except FileNotFoundError as fne:
+        print(f'Error: {xml_source} not found')
+        exit(1)
+    except Exception as ex:
+        print(f'Error: {ex}')
+        exit(1)
 
     # misc
-    # display(f'shape {users.shape}')
-    # display(users)
-    # row = 0
-    # display(f'row {row}')
-    # display(users[0])
-    #
-    # name = attrId["name"]
-    # display(f'column {name}')
-    # display(users[name])
+    display(f'shape {users.shape}')
+    display(users)
+    row = 0
+    display(f'row {row}')
+    display(users[0])
+
+    name = attr_id["name"]
+    display(f'column {name}')
+    display(users[name])
 
     # The oldest user
     print_header("Oldest user")
-    creation = users[attrCreationDate['name']]
+    creation = users[attr_creation_date['name']]
     # https://docs.python.org/3.5/library/datetime.html#datetime-objects
     display(f"date for oldest user: {dt.datetime.fromtimestamp(creation.min())}")
     # https://docs.scipy.org/doc/numpy/reference/generated/numpy.argmin.html
     index = np.argmin(creation)
     display(f'row index of oldest user: {index}')
-    display(users[index])
+    display_array(users[index])
 
     # The newest user
     print_header("Newest user")
@@ -311,40 +446,40 @@ def main():
     # https://docs.scipy.org/doc/numpy/reference/generated/numpy.argmax.html
     index = np.argmax(creation)
     display(f'row index of newest user: {index}')
-    display(users[index])
+    display_array(users[index])
 
     # Average user age
     print_header("Average user age")
-    avg = get_mean(users[attribAge['name']])
+    avg = get_mean(users[attrib_age['name']])
     display(f"average user age: {avg}")
 
     # User with highest downvote and highest views
-    find_highest("User with highest downvote", "downvote", users, attrDownVotes['name'])
-    find_highest("User with highest views", "views", users, attrViews['name'])
+    find_highest("User with highest downvote", "downvote", users, attr_down_votes['name'])
+    find_highest("User with highest views", "views", users, attr_views['name'])
 
     # User with highest upvote and lowest views
-    find_highest("User with highest upvote", "upvote", users, attrUpVotes['name'])
-    find_lowest("User with lowest views", "views", users, attrViews['name'])
+    find_highest("User with highest upvote", "upvote", users, attr_up_votes['name'])
+    find_lowest("User with lowest views", "views", users, attr_views['name'])
 
     # Users that do not access the website for more than 180 days
     check_time = dt.datetime.now()
     num_days = 180
     date_limit = (check_time - dt.timedelta(days=num_days)).timestamp()
-    search_column = users[attrLastAccessDate['name']]
+    search_column = users[attr_last_access_date['name']]
     more_than_date_limit = np.where(search_column < date_limit)
     print_header(f"Users that do not access the website for more than {num_days} days: {len(more_than_date_limit[0])}")
     print_array(users, more_than_date_limit[0])
 
     check_time = dt.datetime(2014, 6, 1)
     date_limit = (check_time - dt.timedelta(days=num_days)).timestamp()
-    search_column = users[attrLastAccessDate['name']]
+    search_column = users[attr_last_access_date['name']]
     more_than_date_limit = np.where(search_column < date_limit)
     print_header(
         f"Users that do not access the website for more than {num_days} days before {check_time} i.e. {date_limit}: {len(more_than_date_limit[0])}")
     print_array(users, more_than_date_limit[0])
 
     # How many people are below 18, from 18-25, 25-35,36-46, above 46
-    search_column = users[attribAge['name']]
+    search_column = users[attrib_age['name']]
     # https://docs.scipy.org/doc/numpy/reference/generated/numpy.nonzero.html#numpy.nonzero
     age_group = np.asarray(search_column < 18).nonzero()
     x_indices = age_group[0]
@@ -374,14 +509,14 @@ def main():
     # Calculate the top 20 frequent locations
     top_count = 20
     print_header(f"Top {top_count} locations:")
-    locations_counts = nlargest(users, top_count, attrLocation['name'])
+    locations_counts = nlargest(users, top_count, attr_location['name'])
     for idx in range(len(locations_counts[0])):
         if idx == top_count:
             break
         display(locations_counts[0][idx], locations_counts[1][idx])
 
     # How many people with the sameWebsiteUrl
-    web_url_counts = nlargest(users, sys.maxsize, attrWebsiteUrl['name'])
+    web_url_counts = nlargest(users, sys.maxsize, attr_website_url['name'])
     print_header(f"Counts of users with same website urls:")
     for idx in range(len(web_url_counts[0])):
         display(web_url_counts[0][idx], web_url_counts[1][idx])
@@ -389,7 +524,7 @@ def main():
     # Users with above the average number of words AboutMe section
     # Users with below the average number of words AboutMe section
     print_header(f"Counts of users with above/below average number of words AboutMe section:")
-    about_me = users[attrAboutMe['name']]  # array of about me text
+    about_me = users[attr_about_me['name']]  # array of about me text
     about_me = np.where(about_me is np.nan, '', about_me)
 
     def strip_html(markup):
@@ -411,7 +546,7 @@ def main():
     # create vectorised version of regex to find all words in a string
     # https://docs.python.org/3/library/re.html
     re_words = re.compile(r'(\w+)')
-    vmatch = np.vectorize(lambda x: len(re_words.findall(x)))
+    vmatch = np.vectorize(lambda sentence: len(re_words.findall(sentence)))
 
     about_me_lens = vmatch(about_me)    # array of word counts
 
