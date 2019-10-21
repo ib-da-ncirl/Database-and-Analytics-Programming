@@ -1,0 +1,258 @@
+string scan user count: 40324
+
+DisplayName size: 41
+WebsiteUrl size: 203
+Location size: 104
+AboutMe size: 3911
+
+
+user count: 40324
+
+
+Oldest user
+----------------------------------
+date for oldest user: 2010-07-19 14:01:36
+row index of oldest user: 0
+[(2, 101, 1279544496, 'Geoff Dalgas', 1384294043, 'http://stackoverflow.com', 'Corvallis, OR', '<p>Developer on the StackOverflow team.  Find me on</p>\n\n<p><a href="http://www.twitter.com/SuperDalgas" rel="nofollow">Twitter</a>\n<br><br>\n<a href="http://blog.stackoverflow.com/2009/05/welcome-stack-overflow-valued-associate-00003/">Stack Overflow Valued Associate #00003</a></p>\n', 25, 3, 0, 37, 2)]
+
+Newest user
+----------------------------------
+date for newest user: 2014-09-14 01:01:44
+row index of newest user: 40323
+[(55747, 1, 1410652904, 'Shivam Agrawal', 1410653944, '', 'India', '<p>Maths Enthusiast </p>\n', 0, 0, 0, 0, 5027354)]
+
+Average user age
+----------------------------------
+average user age: 6.527204642396588
+
+User with highest downvote
+----------------------------------
+highest downvote: 779
+highest downvote count: 1
+[(919, 87393, 1281709787, 'whuber', 1410652309, 'http://www.quantdec.com', 'Northeastern US', '<p>Consultant (environmental and spatial stats a specialty), expert witness, and teacher.  I can be reached through (outdated but still valid) links posted <a href="http://www.quantdec.com/quals/quals.htm" rel="nofollow">on my web site</a>.</p>\n\n<p>Twitter: @WilliamAHuber  // ASA-P website: <a href="http://amstatphilly.org/" rel="nofollow">http://amstatphilly.org/</a></p>\n\n<hr>\n\n<blockquote>\n  <p>Why waste time learning, when ignorance is instantaneous?</p>\n</blockquote>\n\n<p><em>--T(iger) Hobbes.</em></p>\n\n<blockquote>\n  <p>For any complex problem there is a simple solution.  And it\'s always wrong.</p>\n</blockquote>\n\n<p>--[Mis?]attributed to H.L. Mencken by Dava Sobel, <em>Longitude</em>.</p>\n', 20932, 11273, 779, 14, 449752)]
+
+User with highest views
+----------------------------------
+highest views: 20932
+highest views count: 1
+[(919, 87393, 1281709787, 'whuber', 1410652309, 'http://www.quantdec.com', 'Northeastern US', '<p>Consultant (environmental and spatial stats a specialty), expert witness, and teacher.  I can be reached through (outdated but still valid) links posted <a href="http://www.quantdec.com/quals/quals.htm" rel="nofollow">on my web site</a>.</p>\n\n<p>Twitter: @WilliamAHuber  // ASA-P website: <a href="http://amstatphilly.org/" rel="nofollow">http://amstatphilly.org/</a></p>\n\n<hr>\n\n<blockquote>\n  <p>Why waste time learning, when ignorance is instantaneous?</p>\n</blockquote>\n\n<p><em>--T(iger) Hobbes.</em></p>\n\n<blockquote>\n  <p>For any complex problem there is a simple solution.  And it\'s always wrong.</p>\n</blockquote>\n\n<p>--[Mis?]attributed to H.L. Mencken by Dava Sobel, <em>Longitude</em>.</p>\n', 20932, 11273, 779, 14, 449752)]
+
+User with highest upvote
+----------------------------------
+highest upvote: 11442
+highest upvote count: 1
+[(1036, 8236, 1282432951, 'Andy W', 1410642253, 'http://andrewpwheeler.wordpress.com/', 'Albany, NY', '<p>Doctoral Student in Criminal Justice.</p>\n', 1305, 11442, 43, 29, 298433)]
+
+User with lowest views
+----------------------------------
+lowest views: 0
+lowest views count: 20197
+[(51, 101, 1279563291, 'Sami', 1322787659, 'None', 'New York, NY', '', 0, 1, 0, 40, 68671)]
+[(105, 101, 1279565599, 'hokiecsgrad', 1280144526, 'None', 'None', '', 0, 0, 0, 0, 159262)]
+[(112, 101, 1279566676, 'Ethan Post', 1279597939, 'None', 'Texas', 'Senior Oracle guy, Software Development, Korn Shell, Configuration Management, Python/Google App Engine newbie, MS Access guru back in the day.', 0, 0, 0, 44, 3177)]
+[(113, 101, 1279566708, 'nkassis', 1280856975, 'http://www.kassis.ca', 'Montreal, Canada', '<p>I work in the medical imaging field as a software developer in montreal Canada. I work with ruby on rails, javascript, c on a daily basis. I was also a system administrator for multiple years working with Linux/Windows /Mac  mixed  environments and managing core network infrastructure from routers to switches. </p>\n\n<p>I have a degree in Mathematics from Florida State University (GO NOLES!)</p>\n', 0, 0, 0, 28, 27335)]
+[(134, 101, 1279570848, 'Matt Hampel', 1309734344, 'None', 'Ann Arbor, MI', '', 0, 1, 1, 0, 40381)]
+[(141, 101, 1279571687, 'grm', 1286907595, 'None', 'None', '', 0, 0, 0, 0, 63903)]
+[(156, 101, 1279575952, 'Andrew Bolster', 1279575952, 'http://www.andrewbolster.info/blog', 'Belfast, United Kingdom', "I'm a Masters student of Electronics & Software Engineering at Queen's University Belfast. I want to get more involved in FOSS (as I've been using FOSS for years now).\r\nI try to document my experiments and experiences on my blog so check it out", 0, 0, 0, 26, 92094)]
+[(176, 101, 1279584964, 'Philippe', 1307272171, 'http://www.google.ca', 'Trois-Rivieres, Canada', "Web developper for almost 10 years now. Mostly programming in ASP.NET, did some PHP for 5 years. I'm also trying to learn some Oracle stuff and how Cognos works.", 0, 0, 0, 39, 28216)]
+[(177, 101, 1279585649, 'tzenes', 1296265186, 'http://@tzenes', 'Seattle, WA', '<p>SDE at Amazon.com</p>\n', 0, 0, 0, 29, 60472)]
+[(180, 101, 1279588302, 'ascarb', 1407425886, 'None', 'None', '', 0, 0, 0, 0, 67844)]
+[(193, 101, 1279599778, 'idursun', 1279599778, 'None', 'Istanbul, Turkey', '<ul>\n<li>Coding in C#</li>\n<li>Coded in Java </li>\n<li>Coded in Delphi (author of <a href="http://code.google.com/p/delphipi/" rel="nofollow">DelphiPI</a>)</li>\n<li>Developing pet projects mostly using Node.js</li>\n</ul>\n', 0, 1, 0, 34, 4058)]
+[(204, 101, 1279606545, 'user204', 1403812920, 'None', 'None', '', 0, 4, 0, 0, 14863)]
+[(206, 101, 1279609539, 'dmcer', 1318288313, 'http://www.dmcer.net', 'San Francisco, CA', 'PhD student in Natural Language Processing\r\n<br/><br/>\r\n\r\n<strong>E-mail:</strong> Daniel.Cer@gmail.com <br/>\r\n<strong>Stack Overflow CV:</strong> <a href="http://careers.stackoverflow.com/danielcer" rel="nofollow">http://careers.stackoverflow.com/danielcer</a>', 0, 2, 0, 0, 31505)]
+[(232, 101, 1279631705, 'm3rLinEz', 1375512366, 'http://lifeonvm.nkuln.com', 'Thailand', "<p>\n<h3>Hi!</h3>\n</p>\n\n<p>\nMy name is <b>Natthawut Kulnirundorn</b>, and I think it's a long name so you can just refer to my internet identity: <b>m3rlinez</b>. I am from Thailand, Land of Tom-Yum-Goong and delicious foods :)\n</p>\n\n<p>\nI am interested in Object-Oriented Design, Software Architecture, Graphics, .NET Technology, Java. I also have a technical blog and a Twitter account.\n</p>\n\n<p>\nYou can contact me via <i>m3rlinez at email by google</i>. \n</p>\n", 0, 4, 0, 28, 7226)]
+[(241, 101, 1279638504, 'Nick Haslam', 1279871051, 'http://oldnick.typepad.com/msblog/', 'England, United Kingdom', "I enjoy programming a great deal. \r\n<p>\r\nI've been doing BASIC, Pascal, C++, VB6 and now I'm on C# and VBA.<p>\r\n\r\nI've spent a good while working with a number of CRM systems; from Maximizer (Contact Management), to Siebel and now Microsoft CRM.\r\n<p>\r\nI'm a Microsoft Certified Professional (in CRM and SharePoint), and have been for 9 years now.\r\n", 0, 0, 0, 41, 29284)]
+20182 additional entries
+
+Users that do not access the website for more than 180 days: 40324
+----------------------------------
+[(2, 101, 1279544496, 'Geoff Dalgas', 1384294043, 'http://stackoverflow.com', 'Corvallis, OR', '<p>Developer on the StackOverflow team.  Find me on</p>\n\n<p><a href="http://www.twitter.com/SuperDalgas" rel="nofollow">Twitter</a>\n<br><br>\n<a href="http://blog.stackoverflow.com/2009/05/welcome-stack-overflow-valued-associate-00003/">Stack Overflow Valued Associate #00003</a></p>\n', 25, 3, 0, 37, 2)]
+[(3, 101, 1279550090, 'Jarrod Dixon', 1407476578, 'http://stackoverflow.com', 'New York, NY', '<p><a href="http://blog.stackoverflow.com/2009/01/welcome-stack-overflow-valued-associate-00002/">Developer on the Stack Overflow team</a>.</p>\n\n<p>Was dubbed <strong>SALTY SAILOR</strong> by Jeff Atwood, as filth and flarn would oft-times fly when dealing with a particularly nasty bug!</p>\n\n<ul>\n<li>Twitter me: <a href="http://twitter.com/jarrod_dixon" rel="nofollow">jarrod_dixon</a></li>\n<li>Email me: jarrod.m.dixon@gmail.com</li>\n</ul>\n', 22, 19, 0, 35, 3)]
+[(4, 101, 1279562607, 'Emmett', 1388655062, 'http://minesweeperonline.com', 'San Francisco, CA', '<p>currently at a startup in SF</p>\n\n<p>formerly a dev at Stack Exchange :)</p>\n', 11, 0, 0, 28, 1998)]
+[(5, 6792, 1279562637, 'Shane', 1407885827, 'http://www.statalgo.com', 'New York, NY', '<p>Quantitative researcher focusing on statistics and machine learning methods in finance. Primarily use R, C++, Python, various databases (including OneTick and KDB), and LaTeX on a daily basis. </p>\n\n<ul>\n<li>Twitter: @statalgo</li>\n<li>Blog: <a href="http://www.statalgo.com" rel="nofollow">http://www.statalgo.com</a> (largely inactive)</li>\n<li>Former moderator on data analysis stack exchange site: <a href="http://stats.stackexchange.com/">http://stats.stackexchange.com/</a></li>\n<li>Proposer of Quantitative Finance stack exchange site: <a href="http://area51.stackexchange.com/proposals/117/quantitative-finance?referrer=EZoOPpokWeo1">http://area51.stackexchange.com/proposals/117/quantitative-finance?referrer=EZoOPpokWeo1</a></li>\n</ul>\n', 1145, 662, 5, 35, 54503)]
+[(6, 457, 1279562647, 'Harlan', 1407437384, 'http://www.harlan.harris.name', 'District of Columbia', '<ul>\n<li>PhD in CS/AI/Machine Learning/Cognitive Modeling from UIUC</li>\n<li>Post-doctoral work in Computational Cognitive Science at Columbia, UConn, NYU</li>\n<li>Statistical Data Scientist in private industry</li>\n</ul>\n\n<p>Twitter: @harlanh</p>\n', 114, 47, 0, 41, 46050)]
+[(7, 429, 1279562677, 'Vince', 1410380052, 'http://bioinformatics.ucdavis.edu', 'Davis, CA', "I'm a recent graduate of UC Davis in Economics, Political Science, and Statistics. I currently work at the Bioinformatics Core at UC Davis building web and database applications, and doing statistical programming in R.\r\n\r\nFavorites: \r\nEmacs, Git, C, Python, R, and any nifty open source *nix tool.", 56, 20, 0, 28, 49514)]
+[(8, 6764, 1279562692, 'csgillespie', 1410293708, 'http://www.mas.ncl.ac.uk/~ncsg3/', 'Newcastle, United Kingdom', '<p>I\'m a statistics lecturer at Newcastle University, UK (<a href="http://www.mas.ncl.ac.uk/~ncsg3/" rel="nofollow">Uni homepage</a>). My research interests are parallel computing, Bayesian statistics and stochastic kinetic models. </p>\n\n<p>I also </p>\n\n<ul>\n<li>run some <a href="http://www.ncl.ac.uk/maths/rcourse/" rel="nofollow">R courses</a> at Newcastle University</li>\n<li>occasionally write the <a href="http://csgillespie.wordpress.com/" rel="nofollow">odd blog post</a></li>\n<li>run on site R training</li>\n</ul>\n', 1089, 604, 25, 36, 70002)]
+[(10, 121, 1279562740, 'Pierre', 1406567702, 'http://plindenbaum.blogspot.com', 'France', 'Bioinformatician\r\nVirology\r\nGenetics\r\nBiology\r\nScience\r\nScience2.0\r\nWeb2.0\r\nBioinformatics\r\nGenotyping\r\nWikipedia', 20, 2, 0, 44, 23234)]
+[(11, 136, 1279562762, 'wahalulu', 1406147298, 'http://www.linkedin.com/in/marckvaisman', 'Washington, DC', "<p>data_stuff &lt;- paste('data', c('scientist', 'munger', 'learner', 'geek')</p>\n\n<p>r_stuff &lt;- paste('R', c('enthusiast', 'community builder')</p>\n", 10, 10, 0, 40, 47893)]
+[(12, 101, 1279562794, 'Jin', 1410290763, 'http://www.8164.org', 'Raleigh, NC', '<p>I design stuff for Stack Exchange. Also a professional bacon eater.</p>\n\n<p>blog: <a href="http://www.8164.org" rel="nofollow">8164.org</a></p>\n\n<p>twitter: <a href="http://twitter.com/jzy" rel="nofollow">@jzy</a></p>\n', 10, 5, 0, 38, 21721)]
+[(13, 817, 1279562809, 'Sharpie', 1408033694, 'http://www.sharpsteen.net', 'United States', 'Undergraduate studying Environmental Engineering and Applied Mathematics.', 178, 44, 1, 28, 46029)]
+[(15, 11, 1279562852, 'hannes.koller', 1282656198, 'http://soma.denkt.org', 'Vienna, Austria', '', 8, 0, 0, 35, 189902)]
+[(16, 101, 1279562893, 'slashnick', 1282246859, 'None', 'London, United Kingdom', '', 4, 7, 0, 31, 10996)]
+[(17, 345, 1279562908, 'Random', 1284100476, 'None', 'None', '', 14, 13, 1, 0, 509454)]
+[(18, 128, 1279562909, 'grokus', 1344520920, 'http://wikipedia.org', 'United States', '<p>Software engineer.</p>\n', 8, 16, 0, 44, 69872)]
+40309 additional entries
+
+Users that do not access the website for more than 180 days before 2014-06-01 00:00:00 i.e. 1386028800.0: 14934
+----------------------------------
+[(2, 101, 1279544496, 'Geoff Dalgas', 1384294043, 'http://stackoverflow.com', 'Corvallis, OR', '<p>Developer on the StackOverflow team.  Find me on</p>\n\n<p><a href="http://www.twitter.com/SuperDalgas" rel="nofollow">Twitter</a>\n<br><br>\n<a href="http://blog.stackoverflow.com/2009/05/welcome-stack-overflow-valued-associate-00003/">Stack Overflow Valued Associate #00003</a></p>\n', 25, 3, 0, 37, 2)]
+[(15, 11, 1279562852, 'hannes.koller', 1282656198, 'http://soma.denkt.org', 'Vienna, Austria', '', 8, 0, 0, 35, 189902)]
+[(16, 101, 1279562893, 'slashnick', 1282246859, 'None', 'London, United Kingdom', '', 4, 7, 0, 31, 10996)]
+[(17, 345, 1279562908, 'Random', 1284100476, 'None', 'None', '', 14, 13, 1, 0, 509454)]
+[(18, 128, 1279562909, 'grokus', 1344520920, 'http://wikipedia.org', 'United States', '<p>Software engineer.</p>\n', 8, 16, 0, 44, 69872)]
+[(19, 101, 1279562925, 'Noah Snyder', 1339944823, 'http://sbseminar.wordpress.com', 'New York, NY', "<p>I'm an assistant professor in mathematics at Indiana and an early adopter of Math Overflow.  I was the first user at mathematics.SE.</p>\n", 13, 2, 0, 34, 501919)]
+[(21, 101, 1279562936, 'Waleed Al-Balooshi', 1317000525, 'None', 'Michigan', '', 6, 0, 0, 33, 40640)]
+[(24, 344, 1279562972, 'A Lion', 1323145316, 'None', 'None', '', 48, 36, 1, 0, 85249)]
+[(37, 156, 1279563116, 'Menno', 1321517567, 'None', 'None', '', 2, 0, 0, 0, 18569)]
+[(38, 133, 1279563117, 'EAMann', 1333464466, 'http://www.eamann.com', 'Portland, OR', '<h3>Occupation(s)</h3>\n\n<p>Web developer, marketer, writer.</p>\n\n<p>Senior Web Engineer with <a href="http://10up.com" rel="nofollow">10up</a>.</p>\n\n<h3>WordPress-powered Projects</h3>\n\n<ul>\n<li><a href="http://eamann.com" rel="nofollow">Blog</a></li>\n<li><a href="http://www.jumping-duck.com" rel="nofollow">Jumping Duck Media</a> - Publishing</li>\n</ul>\n\n<h3>Social Network Thingies</h3>\n\n<ul>\n<li><a href="http://www.linkedin.com/in/ericallenmann" rel="nofollow">LinkedIn</a></li>\n<li><a href="http://www.facebook.com/eric.a.mann" rel="nofollow">Facebook</a></li>\n<li><a href="http://twitter.com/ericmann" rel="nofollow">Twitter</a></li>\n</ul>\n', 15, 1, 0, 31, 128412)]
+[(40, 41, 1279563120, 'Amy Glen', 1326629716, 'http://amyglen.wordpress.com', 'Perth, Australia', '<p>I am a Lecturer (aka Assistant Professor) in Mathematics at Murdoch University, Australia. My research interests lie within combinatorics, discrete mathematics, and number theory. I am especially interested in combinatorics on words.</p>\n', 8, 2, 0, 33, 509456)]
+[(41, 611, 1279563121, 'Reed Copsey', 1353087146, 'http://www.reedcopsey.com', 'Bellingham, WA', "<p>CTO - C Tech Development Corp.</p>\n\n<p>Microsoft MVP - Visual C#, Since 2010</p>\n\n<p>I've been programming professionally for about 14 years, most recently with a focus on C++ and C#.</p>\n", 83, 12, 0, 38, 25430)]
+[(46, 111, 1279563189, 'hadley', 1377635132, 'http://had.co.nz', 'Houston, TX', "I'm an assistant professor of Statistics at Rice University.", 350, 59, 15, 35, 9084)]
+[(47, 1, 1279563189, 'mornington', 1378536485, '', 'None', '', 19, 0, 0, 0, 509457)]
+[(51, 101, 1279563291, 'Sami', 1322787659, 'None', 'New York, NY', '', 0, 1, 0, 40, 68671)]
+14919 additional entries
+
+Users that are below 18: 32040
+----------------------------------
+[(17, 345, 1279562908, 'Random', 1284100476, 'None', 'None', '', 14, 13, 1, 0, 509454)]
+[(22, 591, 1279562940, 'radek', 1410445261, 'None', 'Berne, Switzerland', '<p>Researcher in spatial epidemiology &amp; GIS.</p>\n\n<p>Currently @ the <a href="http://www.ispm.ch/panczak/" rel="nofollow">Institute of Social and Preventive Medicine</a> (University of Bern). Formerly @ the Centre for Evolutionary Medicine (University of Zürich).</p>\n\n<p>Twitter: <a href="https://twitter.com/#!/RPanczak" rel="nofollow">@RPanczak</a></p>\n\n<p>Publications: <a href="http://scholar.google.com/citations?user=8j-L0asAAAAJ&amp;hl=en" rel="nofollow">Google Scholar</a></p>\n', 90, 693, 6, 0, 124416)]
+[(24, 344, 1279562972, 'A Lion', 1323145316, 'None', 'None', '', 48, 36, 1, 0, 85249)]
+[(26, 3150, 1279562979, 'JMS', 1410577405, 'None', 'None', '', 257, 138, 7, 0, 134002)]
+[(30, 2185, 1279563015, 'gappy', 1409166388, 'http://www.twitter.com/gappy3000', 'New York, NY', '<p>Interested primarily in econometric analysis of large data sets and in dimensionality reduction methods. Making a living with equity factor models and portfolio optimization. B.S./M.S. in Physics (University of Rome), M.S. Statistics, M.S./Ph.D. Management Science (Stanford). </p>\n', 312, 40, 3, 0, 48399)]
+[(33, 221, 1279563068, 'James Roth', 1410207320, 'None', 'None', '', 11, 2, 0, 0, 137440)]
+[(34, 185, 1279563071, 'Christopher D. Long', 1410562955, 'http://angrystatistician.blogspot.com', 'Versailles, KY', '<p>Consulting analyst for the San Diego Padres, Houston Rockets.</p>\n\n<p>Twitter: <a href="https://twitter.com/octonion" rel="nofollow">https://twitter.com/octonion</a></p>\n\n<p>LinkedIn: <a href="http://www.linkedin.com/in/octonion" rel="nofollow">http://www.linkedin.com/in/octonion</a></p>\n', 27, 23, 0, 0, 509455)]
+[(37, 156, 1279563116, 'Menno', 1321517567, 'None', 'None', '', 2, 0, 0, 0, 18569)]
+[(43, 101, 1279563140, 'Nick Canzoneri', 1403634293, 'http://nickcanzoneri.com', 'Philadelphia, PA', '', 1, 1, 1, 0, 106191)]
+[(47, 1, 1279563189, 'mornington', 1378536485, '', 'None', '', 19, 0, 0, 0, 509457)]
+[(52, 861, 1279563305, 'Alan H.', 1388488639, 'None', 'None', '', 62, 12, 0, 0, 158152)]
+[(56, 563, 1279563414, 'Benjamin Bannier', 1396342335, 'None', 'Hamburg, Germany', '', 64, 10, 0, 0, 59120)]
+[(61, 1956, 1279563589, 'Rich', 1363098517, 'None', 'United States', '', 147, 39, 4, 0, 75878)]
+[(72, 800, 1279563866, 'deinst', 1404993952, 'None', 'None', '', 77, 58, 0, 0, 168906)]
+[(74, 2316, 1279563903, 'Neil McGuigan', 1409796924, 'http://vancouverdata.blogspot.com', 'Vancouver, Canada', '<p>MBA Finance<br />\nBA Econ<br />\nData Mining<br />\nC#, Javascript, VB, SQL</p>\n', 1126, 74, 65, 0, 78549)]
+32025 additional entries
+
+Users that are from 18-25: 1853
+----------------------------------
+[(169, 113, 1279582053, 'Isaac Hodes', 1396718198, 'http://www.CopperThoughts.com', 'New York', '', 19, 5, 0, 24, 47949)]
+[(320, 101, 1280170912, 'Matěj G.', 1406215658, 'http://mgrabovsky.net', 'Czech Republic', '<p>Student, wannabe programmer, cats adorer. Functionalist, minimalist.</p>\n\n<p>Occasional contributor to <a href="http://www.mediawiki.org/wiki/MediaWiki" rel="nofollow">MediaWiki</a>.</p>\n', 0, 3, 0, 19, 80305)]
+[(350, 101, 1280176261, 'JSchlather', 1355600140, 'http://homepages.uc.edu/~schlatjj/', 'None', '', 1, 2, 0, 25, 40440)]
+[(465, 101, 1280234642, 'Ricket', 1288996510, 'http://www.richardcarter.org/', 'Raleigh, NC', '<p>I\'m a software developer at <a href="http://www.netapp.com/" rel="nofollow">NetApp</a>, with an avid side interest in game development.</p>\n\n<ul>\n<li><a href="http://www.richardcarter.org/" rel="nofollow">Website</a></li>\n<li><a href="http://www.twitter.com/ricket" rel="nofollow">Twitter</a></li>\n<li><a href="http://www.linkedin.com/in/rwcarter" rel="nofollow">LinkedIn</a></li>\n</ul>\n', 1, 0, 0, 24, 20039)]
+[(488, 109, 1280244001, 'HoLyVieR', 1363104927, 'http://holyvier.blogspot.com/', 'Montreal, Canada', '<p>I live in Montreal, Quebec. I\'m studying at l\'ÉTS in Montréal. You can look at my <a href="http://careers.stackoverflow.com/olivierarteau">careers profile</a> for more information.</p>\n\n<p>If you enjoy Javascript and you live in Montreal, join <a href="http://js-montreal.org/" rel="nofollow">JS Montréal</a> meetup !</p>\n\n<p><img src="http://projecteuler.net/profile/HoLyVieR.png" alt="I also like math"></p>\n', 7, 2, 0, 23, 146165)]
+[(640, 101, 1280650277, 'WalterJ89', 1398019523, 'http://www.gyswebdesign.com', 'Abbotsford, Canada', 'Currently going to the University of the Fraser Valley for my Degree in Computer Information Systems.', 1, 0, 0, 25, 8194)]
+[(716, 1, 1280916176, 'Stephen', 1367572707, 'http://www.google.com', 'Scotland, United Kingdom', '<p>...</p>\n', 4, 0, 0, 23, 143938)]
+[(733, 101, 1280931411, 'Alex Bliskovsky', 1300883165, 'http://bethesdatech.net', 'Bethesda, MD', '', 2, 0, 0, 22, 157094)]
+[(742, 101, 1280941771, 'Corey Ogburn', 1408129929, 'http://www.coreyogburn.com', 'Oklahoma City, OK', "<p>Software development is my passion. Being able to structure a piece of software and implement solutions makes the hair on the back of my neck stand up. I've worked in a lot of different fields from financial analysis, GIS, fleet tracking, and most recently the pharmaceutical field. My personal research has taken me into cryptography, compression, android development, game development, sound engineering, and more. I can't learn fast enough.</p>\n", 0, 0, 0, 25, 53674)]
+[(747, 143, 1280951336, 'waiwai933', 1389958621, 'None', 'Cambridge, UK', '<p>♦ moderator for <a href="http://english.stackexchange.com/">English Language and Usage</a> and <a href="http://ell.stackexchange.com/">English Language Learners</a>. If you (wish to dispute) or (have questions on) a moderator decision, please post on <a href="http://meta.english.stackexchange.com">meta.english</a> or <a href="http://meta.ell.stackexchange.com">meta.ell</a>.</p>\n', 4, 3, 0, 19, 32261)]
+[(813, 101, 1281194053, 'julien', 1407401916, 'http://www.netvibes.com/jgaffuri', 'Silea, Italy', '<p>maps rock!</p>\n', 0, 2, 0, 20, 180537)]
+[(819, 101, 1281245018, 'shadyabhi', 1281245018, 'http://blog.abhijeetr.com', 'India', '', 0, 0, 0, 25, 56016)]
+[(865, 101, 1281508180, 'Ashish', 1281517574, 'http://blog.ashonomics.com/', 'Goa, India', '<p>I just started using my account here on Stack Overflow yesterday (July 21, 2010).</p>\n', 1, 0, 0, 25, 171685)]
+[(878, 101, 1281550891, 'Tamschi', 1306405702, 'None', 'None', '', 4, 0, 0, 23, 178203)]
+[(912, 101, 1281684315, 'fahadsadah', 1281684315, 'http://pyramid.cluenet.org/~fahad', 'London, United Kingdom', 'Here to help out', 0, 0, 0, 18, 43274)]
+1838 additional entries
+
+Users that are from 25-35: 5053
+----------------------------------
+[(3, 101, 1279550090, 'Jarrod Dixon', 1407476578, 'http://stackoverflow.com', 'New York, NY', '<p><a href="http://blog.stackoverflow.com/2009/01/welcome-stack-overflow-valued-associate-00002/">Developer on the Stack Overflow team</a>.</p>\n\n<p>Was dubbed <strong>SALTY SAILOR</strong> by Jeff Atwood, as filth and flarn would oft-times fly when dealing with a particularly nasty bug!</p>\n\n<ul>\n<li>Twitter me: <a href="http://twitter.com/jarrod_dixon" rel="nofollow">jarrod_dixon</a></li>\n<li>Email me: jarrod.m.dixon@gmail.com</li>\n</ul>\n', 22, 19, 0, 35, 3)]
+[(4, 101, 1279562607, 'Emmett', 1388655062, 'http://minesweeperonline.com', 'San Francisco, CA', '<p>currently at a startup in SF</p>\n\n<p>formerly a dev at Stack Exchange :)</p>\n', 11, 0, 0, 28, 1998)]
+[(5, 6792, 1279562637, 'Shane', 1407885827, 'http://www.statalgo.com', 'New York, NY', '<p>Quantitative researcher focusing on statistics and machine learning methods in finance. Primarily use R, C++, Python, various databases (including OneTick and KDB), and LaTeX on a daily basis. </p>\n\n<ul>\n<li>Twitter: @statalgo</li>\n<li>Blog: <a href="http://www.statalgo.com" rel="nofollow">http://www.statalgo.com</a> (largely inactive)</li>\n<li>Former moderator on data analysis stack exchange site: <a href="http://stats.stackexchange.com/">http://stats.stackexchange.com/</a></li>\n<li>Proposer of Quantitative Finance stack exchange site: <a href="http://area51.stackexchange.com/proposals/117/quantitative-finance?referrer=EZoOPpokWeo1">http://area51.stackexchange.com/proposals/117/quantitative-finance?referrer=EZoOPpokWeo1</a></li>\n</ul>\n', 1145, 662, 5, 35, 54503)]
+[(7, 429, 1279562677, 'Vince', 1410380052, 'http://bioinformatics.ucdavis.edu', 'Davis, CA', "I'm a recent graduate of UC Davis in Economics, Political Science, and Statistics. I currently work at the Bioinformatics Core at UC Davis building web and database applications, and doing statistical programming in R.\r\n\r\nFavorites: \r\nEmacs, Git, C, Python, R, and any nifty open source *nix tool.", 56, 20, 0, 28, 49514)]
+[(13, 817, 1279562809, 'Sharpie', 1408033694, 'http://www.sharpsteen.net', 'United States', 'Undergraduate studying Environmental Engineering and Applied Mathematics.', 178, 44, 1, 28, 46029)]
+[(15, 11, 1279562852, 'hannes.koller', 1282656198, 'http://soma.denkt.org', 'Vienna, Austria', '', 8, 0, 0, 35, 189902)]
+[(16, 101, 1279562893, 'slashnick', 1282246859, 'None', 'London, United Kingdom', '', 4, 7, 0, 31, 10996)]
+[(19, 101, 1279562925, 'Noah Snyder', 1339944823, 'http://sbseminar.wordpress.com', 'New York, NY', "<p>I'm an assistant professor in mathematics at Indiana and an early adopter of Math Overflow.  I was the first user at mathematics.SE.</p>\n", 13, 2, 0, 34, 501919)]
+[(21, 101, 1279562936, 'Waleed Al-Balooshi', 1317000525, 'None', 'Michigan', '', 6, 0, 0, 33, 40640)]
+[(27, 101, 1279562981, 'balpha', 1397483837, 'http://balpha.de/', 'Berlin, Germany', '<p>My name is Benjamin Dumke-von der Ehe. I am <a href="http://blog.stackoverflow.com/2010/06/welcome-stack-overflow-valued-associates-00006-and-00007">Stack Overflow Valued Associate #00007</a>, which is just a confusing way of saying that I work as a developer for Stack Exchange.</p>\n\n<p>I am <a href="http://twitter.com/balpha" rel="nofollow">@balpha</a> on Twitter. My <a href="http://balpha.de/about/" rel="nofollow">blog\'s "about" page</a> explains the origin of my user name.</p>\n\n<p>I am the creator of <a href="http://unicornify.appspot.com/" rel="nofollow"><em>Unicornify</em></a>, the service that gives you these lovable creatures:</p>\n\n<p><img src="http://unicornify.appspot.com/avatar/1?s=48" alt=""> <img src="http://unicornify.appspot.com/avatar/13?s=48" alt=""> <img src="http://unicornify.appspot.com/avatar/3?s=48" alt=""> <img src="http://unicornify.appspot.com/avatar/14?s=48" alt=""> <img src="http://unicornify.appspot.com/avatar/5?s=48" alt=""></p>\n\n<p>I also created <a href="https://bitbucket.org/balpha/lyfe" rel="nofollow"><em>Lyfe</em></a>, a small library adding <code>yield</code>-based generators to JavaScript, and <a href="http://notarealquestion.appspot.com/" rel="nofollow"><em>Not a Real Question</em></a>, a little game that\'s played with data from various Stack Exchange sites.</p>\n\n<p>I sometimes have a <a href="http://meta.stackexchange.com/questions/43418">strange</a> <a href="http://stackoverflow.com/questions/2057400">sense of</a> <a href="http://meta.stackexchange.com/questions/122781">humor</a>,\nbut I also like to <a href="http://meta.stackexchange.com/a/74115">explain</a> <a href="http://stackoverflow.com/a/2055144">things</a> <a href="http://meta.stackexchange.com/a/75045">I fix</a>, <a href="http://meta.stackexchange.com/a/128705">break</a>, <a href="http://balpha.de/2012/07/an-unexcited-look-at-browser-sniffing" rel="nofollow">care about</a>, or <a href="http://stackoverflow.com/a/11833858">come up with</a>.</p>\n', 10, 2, 0, 34, 40051)]
+[(35, 101, 1279563098, 'adi92', 1407906338, 'http://www.contrib.andrew.cmu.edu/~amukherj/', 'Pittsburgh, PA', '', 4, 9, 0, 26, 13043)]
+[(36, 1570, 1279563112, 'Stephen Turner', 1409321827, 'http://gettinggeneticsdone.blogspot.com/', 'Nashville, TN', '<p>I\'m finishing up my Ph.D. in Human Genetics at Vanderbilt University, and will be job-hunting near the end of the year. Find me on my <a href="http://www.stephenturner.us/" rel="nofollow">website</a>, <a href="http://gettinggeneticsdone.blogspot.com/" rel="nofollow">blog</a>, or <a href="http://twitter.com/Genetics_Blog" rel="nofollow">twitter</a>.</p>\n', 173, 26, 1, 31, 330276)]
+[(38, 133, 1279563117, 'EAMann', 1333464466, 'http://www.eamann.com', 'Portland, OR', '<h3>Occupation(s)</h3>\n\n<p>Web developer, marketer, writer.</p>\n\n<p>Senior Web Engineer with <a href="http://10up.com" rel="nofollow">10up</a>.</p>\n\n<h3>WordPress-powered Projects</h3>\n\n<ul>\n<li><a href="http://eamann.com" rel="nofollow">Blog</a></li>\n<li><a href="http://www.jumping-duck.com" rel="nofollow">Jumping Duck Media</a> - Publishing</li>\n</ul>\n\n<h3>Social Network Thingies</h3>\n\n<ul>\n<li><a href="http://www.linkedin.com/in/ericallenmann" rel="nofollow">LinkedIn</a></li>\n<li><a href="http://www.facebook.com/eric.a.mann" rel="nofollow">Facebook</a></li>\n<li><a href="http://twitter.com/ericmann" rel="nofollow">Twitter</a></li>\n</ul>\n', 15, 1, 0, 31, 128412)]
+[(39, 1651, 1279563119, 'John L. Taylor', 1407428482, 'http://www.johnnylogic.org/', 'Portland, OR', '<p>I am a Senior Data Scientist at <a href="http://www.iovation.com/" rel="nofollow">iovation</a>. My professional interests lie in the application of open source analysis stacks to problems in various domains.</p>\n\n<p>Once upon a time I was a graduate student in Logic and Computation at Carnegie Mellon University, specializing in philosophy of science and formal epistemology (esp. computational epistemology). My undergraduate degrees are in philosophy and psychology (with a minor in computer information systems) from Humboldt State University.</p>\n\n<p>My interests are legion– they include statistics, complex systems theory, social psychology, visualization, machine learning, perception, cognitive psychology, political theory, the history of computing, and cognitive neuroscience.</p>\n', 255, 12, 0, 35, 336934)]
+[(40, 41, 1279563120, 'Amy Glen', 1326629716, 'http://amyglen.wordpress.com', 'Perth, Australia', '<p>I am a Lecturer (aka Assistant Professor) in Mathematics at Murdoch University, Australia. My research interests lie within combinatorics, discrete mathematics, and number theory. I am especially interested in combinatorics on words.</p>\n', 8, 2, 0, 33, 509456)]
+5038 additional entries
+
+Users that are from 36-46: 1478
+----------------------------------
+[(2, 101, 1279544496, 'Geoff Dalgas', 1384294043, 'http://stackoverflow.com', 'Corvallis, OR', '<p>Developer on the StackOverflow team.  Find me on</p>\n\n<p><a href="http://www.twitter.com/SuperDalgas" rel="nofollow">Twitter</a>\n<br><br>\n<a href="http://blog.stackoverflow.com/2009/05/welcome-stack-overflow-valued-associate-00003/">Stack Overflow Valued Associate #00003</a></p>\n', 25, 3, 0, 37, 2)]
+[(6, 457, 1279562647, 'Harlan', 1407437384, 'http://www.harlan.harris.name', 'District of Columbia', '<ul>\n<li>PhD in CS/AI/Machine Learning/Cognitive Modeling from UIUC</li>\n<li>Post-doctoral work in Computational Cognitive Science at Columbia, UConn, NYU</li>\n<li>Statistical Data Scientist in private industry</li>\n</ul>\n\n<p>Twitter: @harlanh</p>\n', 114, 47, 0, 41, 46050)]
+[(8, 6764, 1279562692, 'csgillespie', 1410293708, 'http://www.mas.ncl.ac.uk/~ncsg3/', 'Newcastle, United Kingdom', '<p>I\'m a statistics lecturer at Newcastle University, UK (<a href="http://www.mas.ncl.ac.uk/~ncsg3/" rel="nofollow">Uni homepage</a>). My research interests are parallel computing, Bayesian statistics and stochastic kinetic models. </p>\n\n<p>I also </p>\n\n<ul>\n<li>run some <a href="http://www.ncl.ac.uk/maths/rcourse/" rel="nofollow">R courses</a> at Newcastle University</li>\n<li>occasionally write the <a href="http://csgillespie.wordpress.com/" rel="nofollow">odd blog post</a></li>\n<li>run on site R training</li>\n</ul>\n', 1089, 604, 25, 36, 70002)]
+[(10, 121, 1279562740, 'Pierre', 1406567702, 'http://plindenbaum.blogspot.com', 'France', 'Bioinformatician\r\nVirology\r\nGenetics\r\nBiology\r\nScience\r\nScience2.0\r\nWeb2.0\r\nBioinformatics\r\nGenotyping\r\nWikipedia', 20, 2, 0, 44, 23234)]
+[(11, 136, 1279562762, 'wahalulu', 1406147298, 'http://www.linkedin.com/in/marckvaisman', 'Washington, DC', "<p>data_stuff &lt;- paste('data', c('scientist', 'munger', 'learner', 'geek')</p>\n\n<p>r_stuff &lt;- paste('R', c('enthusiast', 'community builder')</p>\n", 10, 10, 0, 40, 47893)]
+[(12, 101, 1279562794, 'Jin', 1410290763, 'http://www.8164.org', 'Raleigh, NC', '<p>I design stuff for Stack Exchange. Also a professional bacon eater.</p>\n\n<p>blog: <a href="http://www.8164.org" rel="nofollow">8164.org</a></p>\n\n<p>twitter: <a href="http://twitter.com/jzy" rel="nofollow">@jzy</a></p>\n', 10, 5, 0, 38, 21721)]
+[(18, 128, 1279562909, 'grokus', 1344520920, 'http://wikipedia.org', 'United States', '<p>Software engineer.</p>\n', 8, 16, 0, 44, 69872)]
+[(23, 308, 1279562956, 'Jay Stevens', 1407783092, 'http://www.centerlinescores.com', 'None', "<p>I design and build Grant and Program management web apps for SAIC by day and I design and build the best place to find US dressage scores  online for horse shows by night.  The first computers I programmed on were an IBM 8088 and an Apple 2.  I graduated in 1986 to a Mac-Plus... </p>\n\n<blockquote>\n  <p><em>(What's the most powerful computer in the world?  The one people use.)</em></p>\n</blockquote>\n\n<p>... then I upgraded to dual floppy drives (Chuck Yeager Flight Simulator required it), then upgraded to a 40 MB HD (all my MIDI programming demanded it).  I was then seduced by the PC-dark side </p>\n\n<blockquote>\n  <p><em>(What's the most powerful computer in the world?  The one that has software to run on it.)</em></p>\n</blockquote>\n\n<p>In 1990, I discovered SAS, SPSS and Statistics.  So while I'm a .NET geekarchitect today, I'm also a kick-butt SAS-Ninja-Shadow-Warrior as well.</p>\n", 52, 34, 1, 46, 21565)]
+[(29, 2250, 1279562982, 'JD Long', 1407780843, 'http://cerebralmastication.com', 'Chicago, IL', "I'm a data guy not a programmer. But sometimes I have to program my data into submission. I can be found on Twitter: @CMastication", 318, 28, 1, 42, 17035)]
+[(41, 611, 1279563121, 'Reed Copsey', 1353087146, 'http://www.reedcopsey.com', 'Bellingham, WA', "<p>CTO - C Tech Development Corp.</p>\n\n<p>Microsoft MVP - Visual C#, Since 2010</p>\n\n<p>I've been programming professionally for about 14 years, most recently with a focus on C++ and C#.</p>\n", 83, 12, 0, 38, 25430)]
+[(50, 101, 1279563289, 'Alex Ott', 1409828814, 'http://alexott.net/en/', 'Germany', '<p>Software architect &amp; developer with about 20 years of experience. Primary interests - Functional programming (, Clojure, Erlang, Haskell), Emacs, Information Security, Machine Learning, Natural Language Processing, Big Data, etc.</p>\n\n<p>Also program in Scheme, Common Lisp, OCaml, C, C++, Java, and many other languages...</p>\n\n<p>I have 2 technological blogs: <a href="http://alexott.blogspot.com" rel="nofollow">English</a> and <a href="http://alexott-ru.blogspot.com" rel="nofollow">Russian</a>, and also 2 twitter accounts: <a href="http://twitter.com/alexott_en" rel="nofollow">@alexott_en</a> (English) and <a href="http://twitter.com/alexott" rel="nofollow">@alexott</a> (Russian)</p>\n', 3, 3, 0, 40, 9963)]
+[(51, 101, 1279563291, 'Sami', 1322787659, 'None', 'New York, NY', '', 0, 1, 0, 40, 68671)]
+[(55, 366, 1279563369, 'Amos', 1356869142, 'http://www.wolfsheadsoftware.co.uk', 'Bolton, United Kingdom', 'Maths Teacher, Computer Programmer, Web Designer.', 16, 48, 1, 45, 72973)]
+[(57, 126, 1279563494, 'kaybenleroll', 1404139763, 'http://www.kaybensoft.com', 'Ireland', '<p>Software Developer in Ireland, who is fond of asking questions...</p>\n', 7, 93, 0, 37, 223)]
+[(62, 549, 1279563615, 'Baltimark', 1405692080, 'http://www.baltimark.com', 'United States', '<p>Mathematical programmer. <P><P></p>\n\n<p>When not in front of a screen, can be found speed skating, inline skating, golfing, pushing weight, and beating around Baltimore.<P><P></p>\n\n<p><a href="http://googleblog.blogspot.com/2009/02/from-height-of-this-place.html" rel="nofollow">Data is the sword of the 21st century, those who wield it well, the Samurai.</a></p>\n', 90, 13, 3, 42, 900)]
+1463 additional entries
+
+Users that are above 46: 436
+----------------------------------
+[(25, 4968, 1279562972, 'Harvey Motulsky', 1410641502, 'http://www.graphpad.com', 'Santa Monica CA', '<p>I am the founder and CEO of <a href="http://www.graphpad.com" rel="nofollow">GraphPad Software</a> and the author of <a href="http://intuitivebiostatistics.com" rel="nofollow">Intuitive Biostatistics</a>.</p>\n', 641, 328, 23, 62, 504968)]
+[(104, 146, 1279565552, 'Farrel', 1406815011, 'None', 'Pittsburgh, PA', 'Not a programmer but not afraid to use simple programming / macroing such as manipulate and analyze data in R or write 3-10 line autohotkey commands.', 26, 23, 0, 49, 56132)]
+[(132, 33, 1279570357, 'Mike Richardson', 1320690750, 'http://faculty.washington.edu/mrich', 'Seattle, WA', 'Professor of Radiology<br>\r\nUniversity of Washington<br>\r\nSeattle, WA', 8, 2, 0, 64, 31763)]
+[(159, 18283, 1279577139, 'Rob Hyndman', 1410659589, 'http://robjhyndman.com', 'Melbourne, Australia', '<p>Professor of Statistics, Monash University, Australia. Have used R and LaTeX for more than 20 years.</p>\n', 3781, 1014, 59, 47, 48509)]
+[(161, 101, 1279577863, 'Peter K.', 1402313053, 'https://sites.google.com/site/kootsoop/', 'CT, USA', "<p>What do I look for in a post? Clarity and Contribution.  </p>\n\n<p>NO vote: If the post is clear, but makes no contribution OR if the post is unclear, but makes a contribution (though I will try to improve the clarity either by comments or direct edit).</p>\n\n<p>UP vote: If the post is clear and makes a contribution.</p>\n\n<p>DOWN vote: If the post is unclear and makes no contribution (though I will try to see if I've missed something by commenting).</p>\n", 1, 8, 0, 49, 7274)]
+[(174, 792, 1279584547, 'walkytalky', 1382696061, 'http://walkytalky.net/', 'London, United Kingdom', 'Erstwhile programmer turned experimental scientist. Now spend more time fiddling with cells and microscopes than coding, but still occasionally keep a hand in.', 78, 163, 4, 47, 67941)]
+[(187, 446, 1279594031, 'Andrew Robinson', 1410127504, 'http://www.ms.unimelb.edu.au/~andrewpr', 'Melboure, Australia', '', 69, 6, 0, 48, 81665)]
+[(240, 281, 1279637577, 'bmargulies', 1410196320, 'http://dssheep.blogspot.com/', 'Massachusetts', '\r\n', 31, 8, 0, 55, 44736)]
+[(260, 526, 1279740080, 'Hbar', 1399978736, 'http://none', 'Washington, DC', '<p>Ex-physicist.</p>\n', 24, 2, 0, 52, 508138)]
+[(311, 101, 1280169880, 'Mike Polen', 1386944549, 'http://about.me/mwpolen', 'Richmond, VA', '<p>Christian, lean system thinker, software developer, reader, game player, coach, father and husband</p>\n', 1, 0, 0, 48, 175)]
+[(339, 3039, 1280174281, 'George Dontas', 1408044152, 'http://www.linkedin.com/in/gd047', 'Hellas', '', 363, 125, 0, 47, 57010)]
+[(340, 101, 1280174382, 'txwikinger', 1363116989, 'http://drupal.txwikinger.me.uk', 'Canada', '<p>Ubuntu member, Kubuntu member</p>\n', 4, 0, 0, 48, 45805)]
+[(469, 101, 1280238711, 'jeffm', 1286922021, 'http://jeffmetzner.spaces.live.com', 'United States', 'C++, C#, Windows programmer', 0, 1, 0, 47, 1162)]
+[(472, 101, 1280239260, 'Carl Manaster', 1280675516, 'http://undisclosed-recipients.blogspot.com', 'San Diego, CA', 'Scientific Visualization<br>\r\nAgile<br>\r\nJava<br>\r\nTDD<br>', 0, 0, 0, 52, 30171)]
+[(482, 61, 1280241588, 'Alan Scrivner', 1280673281, 'http://www.navsea.navy.mil/nswc/Corona', 'California', '<p><em>Mathematician by training, Systems Analyst by vocation.</em></p>\n', 9, 0, 0, 57, 509486)]
+421 additional entries
+
+Top 20 locations:
+----------------------------------
+None 28635
+United States 352
+London, United Kingdom 281
+Germany 221
+United Kingdom 209
+India 206
+San Francisco, CA 154
+New York, United States 148
+Seattle, WA 131
+Bangalore, India 130
+California 117
+New York, NY 116
+Chicago, IL 108
+Netherlands 107
+Boston, MA 99
+Moscow, Russia 95
+Paris, France 94
+Canada 92
+Sydney, Australia 91
+France 86
+
+Counts of users with same website urls:
+----------------------------------
+None 28087
+'' 4117
+http://none 89
+http://www.google.com 47
+http://None 39
+http://N/A 26
+http://n/a 18
+http://- 18
+http://stackoverflow.com 15
+http://google.com 14
+http://localhost 14
+http://NA 13
+http://localhost/ 6
+http://www.stackoverflow.com 5
+http://www.google.com/ 4
+
+Counts of users with above/below average number of words AboutMe section:
+----------------------------------
+/home/ibuttimer/Documents/dap/02_250919/lab/venv/lib/python3.7/site-packages/bs4/__init__.py:375: UserWarning: "http://www.quora.com/Dimitry-Lukashov" looks like a URL. Beautiful Soup is not an HTTP client. You should probably use an HTTP client like requests to get the document behind the URL, and feed that document to Beautiful Soup.
+  ' that document to Beautiful Soup.' % decoded_markup
+/home/ibuttimer/Documents/dap/02_250919/lab/venv/lib/python3.7/site-packages/bs4/__init__.py:302: UserWarning: "b'.'" looks like a filename, not markup. You should probably open this file and pass the filehandle into Beautiful Soup.
+  ' Beautiful Soup.' % markup)
+/home/ibuttimer/Documents/dap/02_250919/lab/venv/lib/python3.7/site-packages/bs4/__init__.py:375: UserWarning: "http://www.jwz.org/doc/markup.html" looks like a URL. Beautiful Soup is not an HTTP client. You should probably use an HTTP client like requests to get the document behind the URL, and feed that document to Beautiful Soup.
+  ' that document to Beautiful Soup.' % decoded_markup
+/home/ibuttimer/Documents/dap/02_250919/lab/venv/lib/python3.7/site-packages/bs4/__init__.py:375: UserWarning: "http://twitter.com/ArtemR" looks like a URL. Beautiful Soup is not an HTTP client. You should probably use an HTTP client like requests to get the document behind the URL, and feed that document to Beautiful Soup.
+  ' that document to Beautiful Soup.' % decoded_markup
+/home/ibuttimer/Documents/dap/02_250919/lab/venv/lib/python3.7/site-packages/bs4/__init__.py:302: UserWarning: "b'/dev/null'" looks like a filename, not markup. You should probably open this file and pass the filehandle into Beautiful Soup.
+  ' Beautiful Soup.' % markup)
+average AboutMe word count: 5.804756472572166
+number of users with below average number of words AboutMe section: 33325
+number of users with above average number of words AboutMe section: 6999
+number of users with average number of words AboutMe section: 0
+
+Process finished with exit code 0

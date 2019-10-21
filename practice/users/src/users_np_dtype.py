@@ -42,6 +42,8 @@ floatAttrib = "dbl"
 
 process_limit = sys.maxsize  # set to sys.maxsize to process all records or a smaller value
 
+pre_scan_string_lengths = True  # set to True to scan string lengths before processing
+
 timeit_count = 0                        # set to desired number of executions, or 0 to disable timing
 display_output = (timeit_count == 0)    # display output if not timing execution
 
@@ -82,12 +84,14 @@ def read_attributes(entry, attributes, check_length=True):
             attr_dict[name] = float(attrib_str)
         elif attrib["type"] == htmlAttrib:
             attr_dict[name] = attrib_str
-            attrib_len = len(attrib_str.encode('utf-8'))
+            if check_length:
+                attrib_len = len(attrib_str.encode('utf-8'))
         else:
             attr_dict[name] = attrib_str
-            attrib_len = len(attrib_str)
+            if check_length:
+                attrib_len = len(attrib_str)
 
-        if check_length and (attrib_len >= 0):
+        if attrib_len >= 0:
             if attrib_len > attrib["size"]:
                 raise ValueError(f'size error {attrib_len} > {attrib["size"]} for {name}')
 
@@ -232,6 +236,24 @@ def nlargest(array, n, column):
     return nlargest_array(array[column], n)
 
 
+def show_progress(count, bs):
+    """
+    Show progress
+    :param count: count to display
+    :param bs: backspace string to overwrite current display
+    :return: backspace string to overwrite this display
+    """
+    # give some in progress feedback
+    msg = f'{count}'
+    if len(bs) > 0:
+        sys.stdout.write(bs)
+    bs = '\b' * (len(msg))
+    sys.stdout.write(msg)
+    sys.stdout.flush()
+    time.sleep(0.05)
+    return bs
+
+
 def scan_strings(xml_file, attributes, skip=0):
     """
     Scan attributes in an xml file for length of entries
@@ -252,6 +274,7 @@ def scan_strings(xml_file, attributes, skip=0):
 
         # scan specified attributes
         bs = ''
+        count = 0
         display('string scan user count: ', end='')
         for userXml in root:
             if skip > 0:
@@ -265,24 +288,19 @@ def scan_strings(xml_file, attributes, skip=0):
                     else:
                         size = len(user[attrib["name"]])
                     lens.append(size)
-                # row_stack id an alias for vstack
+                # row_stack is an alias for vstack
                 # https://docs.scipy.org/doc/numpy/reference/generated/numpy.vstack.html?highlight=vstack#numpy.vstack
                 string_lens = np.row_stack((string_lens, np.array([tuple(lens)], np.dtype(type_list))))
                 count = string_lens.shape[0]
 
                 if display_output and (count % 100 == 0):
                     # give some in progress feedback
-                    msg = f'{count}'
-                    if len(bs) > 0:
-                        sys.stdout.write(bs)
-                    bs = '\b' * (len(msg))
-                    sys.stdout.write(msg)
-                    sys.stdout.flush()
-                    time.sleep(0.2)
+                    bs = show_progress(count, bs)
 
                 global process_limit
                 if count > process_limit:
                     break
+        show_progress(count, bs)
 
     except FileNotFoundError as fne:
         print(f'Error: {xml_file} not found')
@@ -305,6 +323,8 @@ def main():
     # WebsiteUrl size: 203
     # Location size: 104
     # AboutMe size: 3911
+    # string scan user count: 40324
+    row_count = 40324
     attr_id = attribute_dictionary("Id", intAttrib)
     attr_reputation = attribute_dictionary("Reputation", intAttrib)
     attr_creation_date = attribute_dictionary("CreationDate", dateAttrib)
@@ -318,30 +338,34 @@ def main():
     attr_down_votes = attribute_dictionary("DownVotes", intAttrib)
     attrib_age = attribute_dictionary("Age", intAttrib)
     attr_account_id = attribute_dictionary("AccountId", intAttrib)
-    # array of attributes of type text (for the moment)
-    str_attributes = [attr_display_name, attr_website_url, attr_location, attr_about_me]
 
-    # scan for max string lengths as need to know size to allocate for string in the numpy array
-    str_lens = scan_strings(xml_source, str_attributes, skip=1)
-    if str_lens is None:
-        exit(1)
+    if pre_scan_string_lengths:
+        # array of attributes of type text
+        str_attributes = [attr_display_name, attr_website_url, attr_location, attr_about_me]
 
-    idx = 0
-    for attrib in str_attributes:
-        attrib_to_set = None
-        if attrib["name"] == attr_display_name["name"]:
-            attrib_to_set = attr_display_name
-        elif attrib["name"] == attr_website_url["name"]:
-            attrib_to_set = attr_website_url
-        elif attrib["name"] == attr_location["name"]:
-            attrib_to_set = attr_location
-        elif attrib["name"] == attr_about_me["name"]:
-            attrib_to_set = attr_about_me
-        if attrib_to_set is not None:
-            max_size = str_lens[attrib["name"]].max()
-            attrib_to_set["size"] = max_size + 5   # add padding
-            display(f'{attrib_to_set["name"]} size: {attrib_to_set["size"]}')
-    display('\n')
+        # scan for max string lengths as need to know size to allocate for string in the numpy array
+        str_lens = scan_strings(xml_source, str_attributes, skip=1)
+        if str_lens is None:
+            exit(1)
+        else:
+            row_count = str_lens.shape[0]   # or could use len() as its only one column
+
+        idx = 0
+        for attrib in str_attributes:
+            attrib_to_set = None
+            if attrib["name"] == attr_display_name["name"]:
+                attrib_to_set = attr_display_name
+            elif attrib["name"] == attr_website_url["name"]:
+                attrib_to_set = attr_website_url
+            elif attrib["name"] == attr_location["name"]:
+                attrib_to_set = attr_location
+            elif attrib["name"] == attr_about_me["name"]:
+                attrib_to_set = attr_about_me
+            if attrib_to_set is not None:
+                max_size = str_lens[attrib["name"]].max()
+                attrib_to_set["size"] = max_size + 5   # add padding
+                display(f'{attrib_to_set["name"]} size: {attrib_to_set["size"]}')
+        display('\n')
 
     # need to update the string lengths first as user_attributes gets its own copy of the attribute variables
     user_attributes = [
@@ -365,8 +389,8 @@ def main():
                       (attr_down_votes["name"], np.int64), (attrib_age["name"], np.int64),
                       (attr_account_id["name"], np.int64)
                       ])
-    # declare empty array, zero rows but one column
-    users = np.empty([0, 1], dtype=type1)
+    # pre-allocate array
+    users = np.empty([row_count, 1], dtype=type1)
 
     # load into an array of dictionaries ignoring first row
     try:
@@ -374,6 +398,7 @@ def main():
         root = tree.getroot()
 
         bs = ''
+        count = 0
         display('user count: ', end='')
         for userXml in root:
             user = read_attributes(userXml, user_attributes)
@@ -395,22 +420,17 @@ def main():
                                 ], dtype=type1)
                 # row_stack id an alias for vstack
                 # https://docs.scipy.org/doc/numpy/reference/generated/numpy.vstack.html?highlight=vstack#numpy.vstack
-                users = np.row_stack((users, row))
-                count = users.shape[0]
+                users[count] = row
+                count += 1
 
                 if display_output and (count % 100 == 0):
                     # give some in progress feedback
-                    msg = f'{count}'
-                    if len(bs) > 0:
-                        sys.stdout.write(bs)
-                    bs = '\b' * (len(msg))
-                    sys.stdout.write(msg)
-                    sys.stdout.flush()
-                    time.sleep(0.2)
+                    bs = show_progress(count, bs)
 
                 global process_limit
                 if count > process_limit:
                     break
+        show_progress(count, bs)
         display('\n')
     except FileNotFoundError as fne:
         print(f'Error: {xml_source} not found')
@@ -420,15 +440,15 @@ def main():
         exit(1)
 
     # misc
-    display(f'shape {users.shape}')
-    display(users)
-    row = 0
-    display(f'row {row}')
-    display(users[0])
-
-    name = attr_id["name"]
-    display(f'column {name}')
-    display(users[name])
+    # display(f'shape {users.shape}')
+    # display(users)
+    # row = 0
+    # display(f'row {row}')
+    # display(users[0])
+    #
+    # name = attr_id["name"]
+    # display(f'column {name}')
+    # display(users[name])
 
     # The oldest user
     print_header("Oldest user")
@@ -518,8 +538,12 @@ def main():
     # How many people with the sameWebsiteUrl
     web_url_counts = nlargest(users, sys.maxsize, attr_website_url['name'])
     print_header(f"Counts of users with same website urls:")
-    for idx in range(len(web_url_counts[0])):
-        display(web_url_counts[0][idx], web_url_counts[1][idx])
+    if display_output:
+        for idx in range(min(len(web_url_counts[0]), max_array_display)):
+            url = web_url_counts[0][idx]
+            if url == '':
+                url = "''"
+            display(url, web_url_counts[1][idx])
 
     # Users with above the average number of words AboutMe section
     # Users with below the average number of words AboutMe section

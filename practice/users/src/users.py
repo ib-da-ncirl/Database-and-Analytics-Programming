@@ -155,6 +155,24 @@ def get_mean(series):
     return val_series.mean()
 
 
+def show_progress(count, bs):
+    """
+    Show progress
+    :param count: count to display
+    :param bs: backspace string to overwrite current display
+    :return: backspace string to overwrite this display
+    """
+    # give some in progress feedback
+    msg = f'{count}'
+    if len(bs) > 0:
+        sys.stdout.write(bs)
+    bs = '\b' * (len(msg))
+    sys.stdout.write(msg)
+    sys.stdout.flush()
+    time.sleep(0.05)
+    return bs
+
+
 def read_xml(xml_file, attributes):
     """
     Read the attributes for an user xml entry
@@ -168,24 +186,21 @@ def read_xml(xml_file, attributes):
     # load into an array of dictionaries ignoring first row as it's not a user
     users_array = []
     bs = ''
+    count = 0
     display('user count: ', end='')
     for userXml in root:
         user_arr = read_attributes_to_array(userXml, attributes)
         if int(user_arr[0]) > 0:
             users_array.append(user_arr)
             count = len(users_array)
-            if count % 100 == 0:
-                msg = f'{count}'
-                if len(bs) > 0:
-                    sys.stdout.write(bs)
-                bs = '\b' * (len(msg))
-                sys.stdout.write(msg)
-                sys.stdout.flush()
-                time.sleep(0.2)
+            if display_output and (count % 100 == 0):
+                # give some in progress feedback
+                bs = show_progress(count, bs)
 
             global process_limit
             if count > process_limit:
                 break
+    show_progress(count, bs)
     display('\n')
     
     return users_array
